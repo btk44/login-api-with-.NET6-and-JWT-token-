@@ -35,7 +35,7 @@ public static class AuthStartupExtensions
         });
 
         services.AddDbContext<AuthContext>(options => 
-            options.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"]) // had to downgrade entity framework core to 3 
+            options.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"])
         );
     }
 }

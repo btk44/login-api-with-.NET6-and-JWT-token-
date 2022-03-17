@@ -21,15 +21,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-using(var scope = app.Services.CreateScope()){
+using(var scope = app.Services.CreateScope()){ // TO DO + private endpoint gives 401 
     var authContext = scope.ServiceProvider.GetRequiredService<AuthContext>();
     authContext.Database.EnsureCreated();
 }
 
+
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
+app.UseRouting();
 app.MapControllers();
 app.UseMiddleware<ErrorHandlerMiddleware>();
-app.UseAuthorization();
 
 app.Run();
