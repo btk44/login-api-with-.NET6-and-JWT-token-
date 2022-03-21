@@ -29,8 +29,8 @@ using(var scope = app.Services.CreateScope()){ // TO DO + private endpoint gives
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
-app.UseAuthorization();
 app.UseRouting();
+app.UseAuthorization();
 app.MapControllers();
 app.UseMiddleware<ErrorHandlerMiddleware>();
 
